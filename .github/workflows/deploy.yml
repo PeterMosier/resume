@@ -1,0 +1,22 @@
+name: Upload Resume to WordPress via SFTP
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Upload index.html to Bitnami WordPress server
+      uses: appleboy/scp-action@master
+      with:
+        host: ${{ secrets.SFTP_HOST }}
+        username: ${{ secrets.SFTP_USER }}
+        key: ${{ secrets.SFTP_PRIVATE_KEY }}
+        source: "index.html"
+        target: "/opt/bitnami/wordpress/resume/"
