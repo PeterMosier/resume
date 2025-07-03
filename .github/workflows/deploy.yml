@@ -12,7 +12,7 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
 
-    - name: Upload index.html to WordPress via SFTP
+    - name: Upload index.html via SCP (no tar)
       uses: appleboy/scp-action@master
       with:
         host: ${{ secrets.SFTP_HOST }}
@@ -20,4 +20,7 @@ jobs:
         key: ${{ secrets.SFTP_PRIVATE_KEY }}
         source: "index.html"
         target: "/opt/bitnami/wordpress/resume/"
+        strip_components: 0
+        overwrite: true
+        tar: false
         
