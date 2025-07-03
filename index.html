@@ -360,15 +360,19 @@
 			color:				#000000;
 		}
 
-		footer {
-			margin-top:			40px;
-			text-align: 			center;
-			font-size: 			0.9em;
-			font-family: 			sans-serif;
-			color: 				#ff0000;
-			padding-bottom: 		10px;
-			visibility: 			visible;
+		#print-footer {
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			text-align: center;
+			font-size: 0.9em;
+			font-family: sans-serif;
+			color: red;
+			background: white;
+			padding: 10px 0;
 		}
+
 
 	</style>
 </head>
@@ -837,7 +841,7 @@
 </div>
 		
 <!-- *********** -->
-<footer>
+<footer id="print-footer">
 <p>Last updated: July 3, 2025</p>
 </footer>
 
