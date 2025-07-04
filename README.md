@@ -5,6 +5,4 @@ Master copy of my résumé (also known as a C.V. or curriculum vitae).
 
 ⚙️ This repository uses a GitHub Actions workflow to automatically deploy index.html to my Wordpress website at peter.mosier.ca/resume.
 
-![Deploy to WordPress](https://github.com/PeterMosier/resume/actions/workflows/deploy.yml/badge.svg)
-
 [![Deploy to WordPress](https://github.com/PeterMosier/resume/actions/workflows/deploy.yml/badge.svg)](https://github.com/PeterMosier/resume/actions/workflows/deploy.yml)
