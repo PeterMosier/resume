@@ -23,459 +23,333 @@
 	
 	<title>Peter Mosier, B.A.Sc., P.Eng. &mdash; R&eacute;sum&eacute;</title>
 
-	<style type="text/css" media="screen">
-
-	@media (min-width: 768px) {
-		html, body {
-		font-size: 10pt; /* Restore desktop font size for wider screens */
-		}
-	}
-
-	/* Adjust general SectionTitle styles for mobile */
-	.SectionTitle {
-	    /* Existing desktop styles will apply. Consider adding a mobile-specific font-size */
-	    @media (max-width: 767px) {
-	        font-size: 1.8rem; /* Make section titles more readable on mobile */
-	        margin-left: 20px; /* Adjust left margin for mobile */
-	    }
+	<style>
+	/* ===================================================================
+	   Base & Mobile-First Styles (Default)
+	   =================================================================== */
+	html,
+	body {
+	    font-family: sans-serif; /* Set a default sans-serif font */
+	    font-size: 16px;         /* Base font size for mobile-first design */
+	    width: 100%;
+	    margin: 0;
+	    padding: 0;
+	    box-sizing: border-box;
 	}
 	
-	/* Adjust padding for other .SubSections in the body for better mobile readability */
-	.SubSection {
-	    @media (max-width: 767px) {
-	        margin: 10px 10px 0 10px; /* Reduce side margins for mobile */
-	        padding: 0.8em 0.8em 0.8em 0.8em; /* Adjust padding for mobile */
-	    }
+	a {
+	    text-decoration: none;
+	    font-weight: bold;
 	}
 	
-	/* Adjust paragraph text for better mobile readability */
+	a:hover {
+	    text-decoration: underline;
+	}
+	
 	p {
-	    @media (max-width: 767px) {
-	        font-size: 0.95rem; /* Slightly larger text for paragraphs on mobile */
-	        margin: 0.5em 10px 0 10px; /* Adjust margins for mobile */
-	        padding: 0 0 0 0.5em; /* Reduce padding for mobile */
-	    }
+	    color: #555555;
+	    font-size: 0.95rem; /* Slightly larger text for paragraphs on mobile */
+	    margin: 0.5em 10px 0 10px;
+	    padding: 0 0 0 0.5em;
 	}
 	
-	/* Adjust list items for better mobile readability */
 	ul {
-	    @media (max-width: 767px) {
-	        margin: 0.5em 10px 0 10px; /* Adjust margins for mobile */
-	        padding: 0 0 0 1em; /* Adjust padding for mobile */
-	    }
+	    margin: 0.5em 10px 0 10px;
+	    padding: 0 0 0 1em; /* Adjust padding for list indentation */
 	}
-		
-	/* --- Media Query for Larger Screens (Tablets and Desktops) --- */
-	/* This rule block will apply styles when the screen width is 768px or wider,
-	   restoring a more horizontal layout for larger displays. */
+	
+	li {
+	    margin: 0;
+	    padding: 0;
+	}
+	
+	footer {
+	    text-align: center;
+	    font-size: 0.9em;
+	    font-family: sans-serif;
+	    color: #444;
+	    margin-top: 40px;
+	    padding-bottom: 10px;
+	}
+	
+	#PrintAdvice {
+	    text-align: center;
+	    font-style: italic;
+	    color: red;
+	}
+	
+	#SourceURL,
+	.PrintOnly {
+	    display: none;
+	}
+	
+	/* --- Header Styles --- */
+	.Header {
+	    background-color: #6e8fe1;
+	    color: #FFFFFF;
+	    display: flex;
+	    flex-direction: column; /* Stack items vertically on mobile */
+	    align-items: center;   /* Center items horizontally */
+	    padding: 10px;
+	    box-sizing: border-box;
+	}
+	
+	.Header a {
+	    color: white;
+	    word-wrap: break-word;
+	    overflow-wrap: break-word;
+	}
+	
+	.Header .SectionTitle {
+	    font-family: gourmand, serif;
+	    font-variant: small-caps;
+	    font-stretch: expanded;
+	    font-size: 2.5rem;
+	    line-height: 1.2;
+	    text-align: center;
+	    margin: 10px 0;
+	    padding: 0;
+	}
+	
+	.Header .SectionBlock {
+	    width: 100%;
+	    text-align: center;
+	    margin: 5px 0;
+	    padding: 0;
+	}
+	
+	.Header ul {
+	    list-style: none;
+	    padding: 0;
+	    margin: 0;
+	}
+	
+	.Header .SubSection {
+	    font-size: 0.9rem;
+	    border: none; /* Override general .SubSection border */
+	    padding: 0;
+	    margin: 0;
+	}
+	
+	/* --- Body Section Styles --- */
+	.SectionTitle {
+	    background-color: #6e8fe1;
+	    color: white;
+	    font-size: 1.8rem; /* Readable on mobile */
+	    font-weight: bold;
+	    padding: 2px;
+	    margin: 20px 0 0 20px;
+	}
+	
+	.SubSection {
+	    color: #555555;
+	    border-color: #6e8fe1;
+	    border-style: none none solid solid;
+	    border-width: 0 0 1px 1px;
+	    margin: 10px;
+	    padding: 0.8em;
+	}
+	
+	.Title, .Organization {
+	    color: #000000;
+	    font-size: 10pt;
+	    font-weight: bold;
+	    margin: 0;
+	    padding: 0;
+	}
+	
+	.Organization {
+	    float: right;
+	    text-align: right;
+	}
+	
+	.Date {
+	    color: #000000;
+	    font-size: 0.7em;
+	    font-style: italic;
+	    margin: 0;
+	    padding: 0;
+	}
+	
+	/* ===================================================================
+	   Large Screen Styles (Tablet & Desktop)
+	   =================================================================== */
 	@media (min-width: 768px) {
+	    html,
+	    body {
+	        font-size: 10pt; /* Restore desktop font size */
+	    }
+	
+	    p {
+	        font-size: 1em; /* Reset from mobile rem size */
+	        margin: 0.5em 0 0 0;
+	        padding: 0 0 0 1em;
+	    }
+	
+	    ul {
+	        margin: 0.5em 0 0 2em;
+	        padding: 0;
+	    }
+	
 	    .Header {
 	        flex-direction: row; /* Layout items in a row */
-	        justify-content: space-between; /* Space out elements horizontally */
-	        align-items: center; /* Vertically align items in the center */
-	        padding: 20px 50px; /* Restore desktop padding */
+	        justify-content: space-between;
+	        align-items: center;
+	        padding: 20px 50px;
 	    }
 	
 	    .Header .SectionTitle {
-	        font-size: 32px; /* Restore original desktop font size */
-	        margin: 0; /* Remove vertical margin from mobile */
-	        padding: 0; /* Adjust as per desired desktop spacing */
-	        flex-basis: auto; /* Let content dictate its width */
-	        white-space: nowrap; /* Tries to keep the name on one line */
+	        font-size: 32px;
+	        margin: 0;
+	        flex-basis: auto;
+	        white-space: nowrap;
 	    }
 	
 	    .Header .SectionBlock {
-	        width: auto; /* Allow auto width on desktop */
-	        text-align: right; /* Align text to the right as per original desktop design */
-	        margin: 0; /* Remove vertical margin from mobile */
-	        padding: 0; /* Adjust as per desired desktop spacing */
+	        width: auto; /* Allow auto width */
+	        text-align: right;
+	        margin: 0;
+	    }
+	    
+	    .Header .SubSection {
+	        font-size: 8pt;
 	    }
 	
-	    .Header .SubSection {
-	        font-size: 8pt; /* Restore original desktop font size */
-	        text-align: right; /* Align to right */
+	    .Header li {
+	        display: inline-block; /* Display items side-by-side */
+	        margin-left: 2em;
 	    }
-}
-		
-		/* --- General Font Size and Layout Adjustments for Body Content (Non-Header) --- */
-		/* Ensure the overall body text is also readable and responsive */
-		html, body {
-		    /* Keep existing font-family */
-		    font-size: 16px; /* A good base font size for mobile-first design */
-		    width: 100%;
-		    margin: 0;
-		    padding: 0;
-		    box-sizing: border-box; /* Crucial for consistent layout calculations */
-		}
-
-		#PrintAdvice {
-			text-align:			center;
-			font-style:			italic;
-			color:				red;
-		}
-		
-		#SourceURL {
-			display:			none;
-		}
-		
-		.Header {
-		    /* Remove fixed height, let content define height dynamically */
-		    height: auto;
-		    background-color: #6e8fe1;
-		    display: flex; /* Enable Flexbox for its children */
-		    flex-direction: column; /* By default, stack items vertically on small screens */
-		    align-items: center; /* Center items horizontally within the flex container */
-		    padding: 10px; /* Add some padding around the whole header */
-		    box-sizing: border-box; /* Ensures padding is included in the element's total width */
-		}
-		
-		.Header .SectionTitle {
-		    /* Remove float, Flexbox will handle positioning */
-		    float: none;
-		    text-align: center; /* Center your name on mobile */
-		    padding: 0; /* Adjust padding for better mobile fit */
-		    margin: 10px 0; /* Add vertical margin for spacing */
-		    font-size: 2.5rem; /* Use rem for responsive font size (relative to root font size) */
-		    line-height: 1.2; /* Adjust line height for better readability */
-		    /* Keep existing color, font-family, font-variant, font-stretch from your original CSS */
-		    color: #FFFFFF;
-		    background-color: #6e8fe1;
-		    font-family: gourmand, serif;
-		    font-variant: small-caps;
-		    font-stretch: expanded;
-		}
-		
-		.SectionTitle {
-			color:              		white;
-			background-color:   		#6e8fe1;
-			font-size:          		10pt;
-			font-weight:        		bold;
-			padding:			2px 2px 2px 2px;
-			margin:				20px 0 0 50px;	        
-		}
-
-		.PrintOnly {
-			display:			none;
-		}
-		
-		.Header .SectionBlock {
-		    /* Remove float, Flexbox will handle positioning */
-		    float: none;
-		    width: 100%; /* Make each SectionBlock take full width on small screens */
-		    text-align: center; /* Center text within each address/contact block */
-		    margin: 5px 0; /* Adjust vertical margin for spacing */
-		    padding: 0;
-		    color: #FFFFFF;
-		    background-color: #6e8fe1;
-		    box-sizing: border-box;
-		}
-
-		.SectionBlock {
-		}
-		
-		.Header .SubSection {
-		    /* These are inside SectionBlock, ensure they adapt properly */
-		    padding: 0;
-		    margin: 0;
-		    font-size: 0.9rem; /* Use rem for slightly larger mobile text */
-		    text-align: center; /* Center address/phone/email text */
-		    list-style: none; /* Keep original list style */
-		    width: auto;
-		    /* Ensure no fixed borders or widths inherited from other .SubSection rules */
-		    border-style: none;
-		}
-		
-		.SubSection {
-			margin:				20px 20px 0 70px;
-			padding:			1em 1em 1em 1em;
-			color:				#555555;
-			border-color:			#6e8fe1 #6e8fe1 #6e8fe1 #6e8fe1;
-			border-style:			none none solid solid;
-			border-width:			0 0 1px 1px;
-        	}
-				
-		.Header  ul {
- 			list-style: 			none;
- 			display: 			block;
-			margin:				0 0 0 0;
-		}
-		
-		.Header li {
-			display: 			block;
-			margin: 			0 0 0 2em;
-			padding: 			0 0 0 0;
-			float: 				left;
-		}
-		
-		.Header a {
-		    /* Ensure links in header are legible and handle long text */
-		    color: white;
-		    font-weight: bold;
-		    word-wrap: break-word; /* Forces long words (like email) to break and wrap */
-		    overflow-wrap: break-word; /* Modern equivalent for word-wrap */
-		}
-        
-		.Organization {
-			color:              		#000000;
-			font-size:          		10pt;
-			font-weight:       		bold;
-			float:				right;
-			text-align:			right;
-			padding:			0 0 0 0;
-			margin:				0 0 0 0;
-		}
-
-		.Title {
-			color:              		#000000;
-			font-size:          		10pt;
-			font-weight:        		bold;
-			padding:			0 0 0 0;
-			margin:				0 0 0 0;
-		}
-
-		.Date {
-			color:             		#000000;
-			font-size:			0.7em;
-			font-style:			italic;
-			padding:			0 0 0 0;
-			margin:				0 0 0 0;
-		}
-
-		p {
-			color:				#555555;
-			margin:				0.5em 0 0 0;
-			padding:			0 0 0 1em;
-		}
-
-		ul {
-			margin:				0.5em 0 0 2em;
-			padding:			0 0 0 0;
-		}
-		
-		li {
-			margin:				0 0 0 0;
-			padding:			0 0 0 0;
-		}
-		
-		a:hover {
-			text-decoration:		underline;
-		}
-
-		a {
-			text-decoration:    		none;
-		}
-
-		footer {
-			text-align: center; 
-			font-size: 0.9em; 
-			color: #444; 
-			margin-top: 40px;
-			font-family: sans-serif;
-			padding-bottom: 10px;
-		}
+	    
+	    .SectionTitle {
+	        font-size: 10pt;
+	        margin: 20px 0 0 50px;
+	    }
+	    
+	    .SubSection {
+	        margin: 20px 20px 0 70px;
+	        padding: 1em;
+	    }
+	}
 	</style>
-    
-	<style type="text/css" media="print">
-		
-		html, body {
-			font-family:        		Times,serif;
-			font-size:          		10pt;
-        		width: 				100%;
-			margin: 			0 0 0 0;
-			padding: 			0 0 0 0;
-		}
-
-		/*the next section to always start on a new page */
-		.start-new-page {
-			page-break-before: 		always;
-		}
-		
-		.force-new-page-on-next {
-			page-break-before: 		always;
-		}
-		
-		#PrintAdvice {
-			display: 			none;
-		}
-		
-		#SourceURL {
-			clear:				both;
-			text-align:			left;
-			font-size:			8pt;
-			font-style:			italic;
-		}
-		
-		.Header {
-		}
-		
-		.Header .SectionTitle {
-			float:				left;
-			color: 				#000000;
-			font-family:        		Tahoma,sans-serif;
-			font-size: 			26px;
-			border-style:			none none none none;
-			border-width:			0 0 0 0;
-			width:				auto;
-			padding: 			0 0 0 0;
-			margin:				0 0 0 0;
-		}
-
-		.PrintOnly {
-			display:			visible;
-		}
-		
-		h1.PrintOnly {
-			clear: 				both;
-			color: 				#000000;
-			font-size:			8pt;
-			font-family:        		Tahoma,sans-serif;
-			font-weight:			normal;
-			border-color:			#000000 #000000 #000000 #000000;
-			border-style:			none none none none;
-			border-width:			0 0 0 0;
-			padding:			0 0 0 0;
-			margin:				0 0 0 0;
-			float:				left;
-			width:				100%;
-		}
-						
-		.SectionTitle, h2.PrintOnly {
-			clear: 				both;
-			color: 				#000000;
-			font-size:			10pt;
-			font-family:        		Tahoma,sans-serif;
-			border-color:			#000000 #000000 #000000 #000000;
-			border-style:			solid none none none;
-			border-width:			4px 0 0 0;
-			width:				14%;
-			padding:			0 0 0 0;
-			margin:				1.5em 0 0 0;
-			float:				left;
-		}
-		
-		.Header .SectionBlock {
-			float:				right;
-			text-align:			right;
-			font-size:			8pt;
-			color: 				#FFFFFF;
-			padding: 			0 0 0 0;
-			margin: 			8px 8px 0 0;
-			width:				auto;
-			border-style:			none none none none;
-			border-width:			0 0 0 0;
-		}
-		
-        	.SectionBlock {
-			width:				83%;
-			padding:			0 0 0 0;
-			margin: 			1.5em 0 0 0;
-			float:				left;
-			border-color:			#000000 #000000 #000000 #000000;
-			border-style:			solid solid none none;
-			border-width:			1px 1px 0 0;
-		}
-
-		.Header .SubSection {
-			padding:			0 2em 0 0;
-			margin: 			0 0 0 0;
-            		text-align:         		right;
-			list-style: 			none;
-			width:				auto;			
-			border-style:			none none none none;
-			border-width:			0 0 0 0;
-		}
-
-		.SubSection {
-			color:             		 #000000;
-			margin:				0 0 0 0;
-			padding:			4px 4px 4px 6px;
-			border-color:			#000000 #000000 #000000 #000000;
-			border-style:			none none solid none;
-			border-width:			0 0 1px 0;
-        	}
-
-		.Header  ul {
- 			list-style: 			none;
- 			display: 			block;
-			margin:				0 0 0 0;
-			padding:			0 0 0 0;
-		}
-		
-		.Header li {
-			display: 			block;
-			margin: 			0 0 0 2em;
-			padding: 			0 0 0 0;
-			float: 				left;
-			width: 				auto;
-		}
-		
-		.Header a {
-        	}
-                
-		.Organization {
-			font-size:         		10pt;
-			font-weight:       		bold;
-			float:				right;
-			text-align:			right;
-			padding:			0 0 0 0;
-			margin:				0 0 0 0;
-		}
-		
-		.Title {
-			padding-right:     		5px;
-			font-size:			10pt;
-			font-weight:			bold;
-			padding:			0 0 0 0;
-			margin:				0 0 0 0;
-		}
-
-		.Date {
-			font-size:			0.7em;
-			font-style:			italic;
-			padding:			0 0 0 0;
-			margin:				0 0 0 0;
-		}
-		
-		p {
-			color:				#000000;
-			margin:				0.5em 0 0 0;
-			padding:			0 0 0 1em;
-		}
-		
-		ul {
-			margin:				0.5em 0 0 2em;
-			padding:			0 0 0 0;
-		}
-		
-		li {
-			margin:				0 0 0 0;
-			padding:			0 0 0 0;
-		}
-		
-		a {
-			text-decoration:		none;
-			color:				#000000;
-		}
-
-		footer {
-			text-align: center; 
-			font-size: 0.9em; 
-			color: #444; 
-			margin-top: 40px;
-			font-family: sans-serif;
-			padding-bottom: 10px;
-		}
-		
-		#footer-text {
-			display: block;
-			padding: 40px 0 10px 0;
-			text-align: center;
-			font-size: 0.9em;
-			font-family: sans-serif;
-			color: #444;
-		}
-
-	</style>
+	
+	/* ===================================================================
+	   Print Styles
+	   =================================================================== */
+	@media print {
+	    html,
+	    body {
+	        font-family: Times, serif;
+	        font-size: 10pt;
+	        color: #000000; /* Default all text to black */
+	        background-color: #FFFFFF; /* Ensure white background */
+	    }
+	
+	    .start-new-page,
+	    .force-new-page-on-next {
+	        page-break-before: always;
+	    }
+	
+	    #PrintAdvice, footer {
+	        display: none;
+	    }
+	
+	    #SourceURL {
+	        display: block; /* Make it visible for print */
+	        clear: both;
+	        text-align: left;
+	        font-size: 8pt;
+	        font-style: italic;
+	    }
+	    
+	    .PrintOnly {
+	        display: block; /* Make it visible for print */
+	    }
+	    
+	    a {
+	        text-decoration: none;
+	        color: #000000;
+	    }
+	
+	    .Header, .Header .SectionBlock, .Header .SubSection, .SectionTitle, .SubSection {
+	        background-color: transparent;
+	        color: #000000;
+	        border: none;
+	        float: none;
+	        width: auto;
+	        margin: 0;
+	        padding: 0;
+	    }
+	
+	    .Header .SectionTitle {
+	        font-family: Tahoma, sans-serif;
+	        font-size: 26px;
+	        float: left;
+	    }
+	
+	    .Header .SectionBlock {
+	        float: right;
+	        text-align: right;
+	        font-size: 8pt;
+	        margin: 8px 8px 0 0;
+	    }
+	    
+	    .Header .SubSection {
+	        text-align: right;
+	        list-style: none;
+	    }
+	    
+	    .Header li {
+	        float: left;
+	        margin: 0 0 0 2em;
+	    }
+	
+	    .SectionTitle, h2.PrintOnly {
+	        clear: both;
+	        font-family: Tahoma, sans-serif;
+	        font-size: 10pt;
+	        border-top: 4px solid #000000;
+	        width: 14%;
+	        margin: 1.5em 0 0 0;
+	        float: left;
+	    }
+	
+	    .SectionBlock {
+	        width: 83%;
+	        margin: 1.5em 0 0 0;
+	        float: left;
+	        border: 1px solid #000000;
+	        border-bottom: none;
+	        border-right: none;
+	    }
+	
+	    .SubSection {
+	        padding: 4px 4px 4px 6px;
+	        border-bottom: 1px solid #000000;
+	    }
+	    
+	    h1.PrintOnly {
+	        clear: both;
+	        font-size: 8pt;
+	        font-family: Tahoma, sans-serif;
+	        font-weight: normal;
+	        float: left;
+	        width: 100%;
+	        border: none;
+	        margin: 0;
+	        padding: 0;
+	    }
+	    
+	    p {
+	        color: #000000;
+	        margin: 0.5em 0 0 0;
+	        padding: 0 0 0 1em;
+	    }
+	
+	    ul {
+	        margin: 0.5em 0 0 2em;
+	        padding: 0;
+	    }
+	}
 </head>
 
 <body>
