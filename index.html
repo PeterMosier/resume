@@ -162,6 +162,7 @@
 	/* ===================================================================
 	   Large Screen Styles (min-width: 768px)
 	   =================================================================== */
+
 	@media (min-width: 768px) {
 	    body {
 	        font-size: 10pt;
@@ -178,49 +179,74 @@
 	        padding: 0;
 	    }
 	
-	    /* --- Header Overrides for Large Screens --- */
+	    /* --- Header Overrides for Large Screens (These are correct) --- */
 	    .Header {
-	        flex-direction: row;        /* Items side-by-side */
+	        flex-direction: row;
 	        justify-content: space-between;
 	        align-items: center;
-	        padding: 1em 2.5em; /* FIX: Reduced padding as requested (e.g., 1em top/bottom, 2.5em left/right) */
+	        padding: 1em 2.5em; 
 	    }
 	
 	    .Header .SectionTitle {
 	        font-size: 32px;
-	        text-align: left; /* Align name to the left */
-	        margin: 0;        /* Remove mobile margin */
+	        text-align: left;
+	        margin: 0;
 	    }
 	
 	    .Header-contactInfo {
-	        align-items: flex-end; /* Right-align the text in the contact block */
+	        align-items: flex-end;
 	    }
 	
 	    .Header-contactInfo .SubSection {
-	        font-size: 9pt; /* Slightly smaller font for a cleaner look */
-	        line-height: 1.6; /* FIX: Added space between address lines as requested */
+	        font-size: 9pt;
+	        line-height: 1.6;
 	    }
 	
-	    /* --- Body Section Overrides for Large Screens --- */
+	    /* --- Body Section Overrides for Large Screens [FIXED] --- */
+	
+	    /* 
+	     * [RESTORED] This rule correctly styles the left column titles.
+	     * The background is removed, and a top border is used instead.
+	     */
 	    .SectionTitle {
-	        width: 14%; /* Two-column layout */
-	        float: left;
-	        margin: 20px 0 0 50px;
-	        padding: 2px;
-	        background-color: transparent; /* Remove background */
-	        color: #000;                   /* Black text */
-	        border-top: 4px solid #990000; /* Use a border instead */
+	        clear: both;
 	        font-size: 10pt;
+	        font-weight: bold;
+	        width: 14%;
+	        float: left;
+	        margin: 2em 0 0 50px;
+	        padding-top: 0.5em;
+	        background-color: transparent;
+	        color: #000;
+	        border-top: 4px solid #990000;
 	    }
 	
+	    /* 
+	     * [FIX] This is the main fix. We are now correctly styling the .SectionBlock 
+	     * as the container for the right-hand column content.
+	     */
+	    .SectionBlock {
+	        width: 70%; /* Adjust width to fit next to the SectionTitle */
+	        float: left;
+	        margin: 2em 0 0 1.5em; /* Gives space between the two columns */
+	        padding-left: 1.5em;
+	        border-left: 1px solid #CCCCCC;
+	    }
+	    
+	    /* 
+	     * [FIX] The .SubSection is now a simple block element inside .SectionBlock.
+	     * All complex layout properties have been removed.
+	     */
 	    .SubSection {
-	        margin: 20px 20px 0 70px;
-	        width: 75%; /* Adjust width for the two-column layout */
-	        float: right;
-	        border-style: solid;
-	        border-color: #ccc;
-	        border-width: 0 0 1px 1px;
-	        padding: 1em;
+	        margin: 0 0 1.5em 0; /* Simple bottom margin for spacing between items */
+	        padding: 0;          /* Padding is handled by parent or children now */
+	        border-bottom: 1px solid #EEEEEE;
+	        /* [REMOVED] All float, width, and complex margin properties from here. */
+	        border-left: none; /* Ensure no double borders */
+	    }
+	
+	    .SubSection:last-child {
+	        border-bottom: none; /* Removes the final line for a cleaner look */
 	    }
 	}
 	
