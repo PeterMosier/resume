@@ -164,6 +164,7 @@
 	   =================================================================== */
 
 	@media (min-width: 768px) {
+	    /* --- General Font & Spacing Overrides --- */
 	    body {
 	        font-size: 10pt;
 	    }
@@ -179,7 +180,7 @@
 	        padding: 0;
 	    }
 	
-	    /* --- Header Overrides for Large Screens (These are correct) --- */
+	    /* --- Header Overrides (These are correct) --- */
 	    .Header {
 	        flex-direction: row;
 	        justify-content: space-between;
@@ -202,51 +203,50 @@
 	        line-height: 1.6;
 	    }
 	
-	    /* --- Body Section Overrides for Large Screens [FIXED] --- */
+	    /* --- Body Section Overrides for Large Screens [FIXED & RESTORED] --- */
 	
 	    /* 
-	     * [RESTORED] This rule correctly styles the left column titles.
-	     * The background is removed, and a top border is used instead.
+	     * [FIX #1] The left column. We give it a fixed percentage width and float it left.
+	     * The `clear: left` ensures each new section title starts below the previous section.
 	     */
 	    .SectionTitle {
-	        clear: both;
-	        font-size: 10pt;
-	        font-weight: bold;
-	        width: 14%;
+	        width: 20%; /* A more generous width for the left column titles */
 	        float: left;
-	        margin: 2em 0 0 50px;
-	        padding-top: 0.5em;
+	        clear: left; /* Ensures this starts on a new line, clearing previous floats */
+	        margin: 2em 0 0 0; /* Top margin for spacing, no side margins needed */
+	        padding: 0.5em 2% 0 50px; /* Padding for internal spacing (50px from edge) */
 	        background-color: transparent;
 	        color: #000;
 	        border-top: 4px solid #990000;
+	        font-size: 10pt;
+	        font-weight: bold;
 	    }
 	
 	    /* 
-	     * [FIX] This is the main fix. We are now correctly styling the .SectionBlock 
-	     * as the container for the right-hand column content.
+	     * [FIX #2] The right column. This takes up the remaining space.
+	     * Its width (80%) + left column width (20%) = 100%. This prevents wrapping.
 	     */
 	    .SectionBlock {
-	        width: 70%; /* Adjust width to fit next to the SectionTitle */
+	        width: 80%; /* Takes up the rest of the horizontal space */
 	        float: left;
-	        margin: 2em 0 0 1.5em; /* Gives space between the two columns */
-	        padding-left: 1.5em;
+	        margin: 2.5em 0 0 0; /* Aligns its top margin with the SectionTitle */
+	        padding: 0 50px 0 2em; /* Padding for the gutter (2em) and right edge */
 	        border-left: 1px solid #CCCCCC;
 	    }
 	    
 	    /* 
-	     * [FIX] The .SubSection is now a simple block element inside .SectionBlock.
-	     * All complex layout properties have been removed.
+	     * [FIX #3] Individual content blocks within the right column.
+	     * These are simple block elements now with no layout properties.
 	     */
 	    .SubSection {
-	        margin: 0 0 1.5em 0; /* Simple bottom margin for spacing between items */
-	        padding: 0;          /* Padding is handled by parent or children now */
-	        border-bottom: 1px solid #EEEEEE;
-	        /* [REMOVED] All float, width, and complex margin properties from here. */
-	        border-left: none; /* Ensure no double borders */
+	        margin: 0 0 1.5em 0; /* Space between job entries */
+	        padding: 0;
+	        border: none; /* Borders are handled by containers now */
 	    }
 	
-	    .SubSection:last-child {
-	        border-bottom: none; /* Removes the final line for a cleaner look */
+	    /* We need to clear the floats after the main content */
+	    footer {
+	        clear: both;
 	    }
 	}
 	
