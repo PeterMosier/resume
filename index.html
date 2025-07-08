@@ -242,19 +242,78 @@
 	    body {
 	        font-family: Times, serif;
 	        font-size: 10pt;
-	        color: #000000; /* Default all text to black */
-	        background-color: #FFFFFF; /* Ensure white background */
+	        color: #000000;
+	        background-color: #FFFFFF;
+	    }
+
+	    #PrintAdvice, footer {
+	        display: none;
+	    }
+
+	a {
+	        text-decoration: none;
+	        color: #000000;
+	    }
+
+	    /* 
+	     *  FIX: Force transparent background on all header elements.
+	     *  Using !important ensures this rule overrides any other conflicting styles 
+	     *  from your main stylesheet, which is likely where the blue is coming from.
+	     */
+	    .Header, .Header * {
+	        background-color: transparent !important;
+	        color: #000000 !important;
+	        border: none !important;
+	    }
+
+	.Header {
+	        display: flex;
+	        flex-direction: row;
+	        justify-content: space-between;
+	        align-items: flex-start; /* Aligns name and contact block to the top */
+	        width: 100%;
+	        padding-bottom: 1em;
+	        margin-bottom: 1em;
+	        border-bottom: 2px solid #000000; /* Adds a nice separator line */
+	}
+
+	    /* Left side of the header (Your Name) */
+	    .Header .SectionTitle {
+	        font-family: Tahoma, sans-serif;
+	        font-size: 24px; /* Slightly reduced for better balance */
+	        font-weight: bold;
+	        white-space: nowrap; /* Keeps your name on one line */
+	        margin: 0;
+	        padding: 0;
 	    }
 	
+	    /* 
+	     *  Right side of the header (Contact Info Container)
+	     *  This rule targets the container we added in the HTML.
+	     *  flex-direction: column "stacks" the contact items vertically.
+	     *  align-items: flex-end right-aligns the text within the stack.
+	     */
+	    .Header-contactInfo {
+	        display: flex;
+	        flex-direction: column; /* This is what stacks the items */
+	        align-items: flex-end; /* This right-aligns the stacked items */
+	        font-size: 9pt; /* Smaller font size as requested */
+	    }
+
+	    /* Styling for the individual lines of contact info */
+	    .Header-contactInfo .SubSection {
+	        margin: 0;
+	        padding: 0;
+	        line-height: 1.4; /* Adds a little space between the lines */
+	        text-align: right;
+	    }
+
+		
 	    .start-new-page,
 	    .force-new-page-on-next {
 	        page-break-before: always;
 	    }
-	
-	    #PrintAdvice, footer {
-	        display: none;
-	    }
-	
+		
 	    #SourceURL {
 	        display: block; /* Make it visible for print */
 	        clear: both;
@@ -266,20 +325,6 @@
 	    .PrintOnly {
 	        display: block; /* Make it visible for print */
 	    }
-	    
-	    a {
-	        text-decoration: none;
-	        color: #000000;
-	    }
-	
-	.Header {
-	    display: flex;
-	    flex-direction: row;
-	    justify-content: space-between;
-	    align-items: center; /* This vertically centers the items */
-	    width: 100%;
-	    padding: 0 0 1em 0; /* Add some padding at the bottom */
-	}
 	
 	/* This is the slimmed-down reset rule */
 	.Header .SectionBlock, .Header .SubSection, .SectionTitle, .SubSection {
@@ -291,13 +336,6 @@
 	    margin: 0;
 	    padding: 0;
 	}
-	
-	    .Header .SectionTitle {
-	        font-family: Tahoma, sans-serif;
-	        font-size: 26px;
-	        /* float: left; */
-		white-space: nowrap;
-	    }
 	
 	    .Header .SectionBlock {
 	        /* float: right; */
@@ -374,26 +412,16 @@
 <!--<div id="PrintAdvice">For best results when printing this r&eacute;sum&eacute;, please reduce margins (in your printer setup) to 1 cm or less</div>-->
 
 <div class="Header">
+	<!-- Left Side: Your Name -->
 	<h1 class="SectionTitle">Peter Mosier, B.A.Sc, P.Eng.</h1>
-	<div class="SectionBlock">    
-		<address class="SubSection">YEG: 13558&nbsp;38&nbsp;St,&nbsp;Edmonton,&nbsp;AB, T5A&nbsp;2W7</address>
+
+	<!-- Right Side: A single container for all contact info -->
+	<div class="Header-contactInfo">
+		<address class="SubSection">YEG: 13558 38 St, Edmonton, AB, T5A 2W7</address>
 		<p class="SubSection"><i>Mobile: 587-487-2869</i></p>
-	</div>
-
-	<div class="SectionBlock">    
-	</div>
-
-	<div class="SectionBlock">    
-		<address class="SubSection">YYZ: 12&nbsp;Stokewell&nbsp;Pl,&nbsp;Scarborough,&nbsp;ON, M1P&nbsp;3X2</address>
+		<address class="SubSection">YYZ: 12 Stokewell Pl, Scarborough, ON, M1P 3X2</address>
 		<p class="SubSection"><i>Mobile: 647-904-8807</i></p>
-	</div>
-	
-	<div class="SectionBlock">
-		<address class="SubSection"><a href="mailto:&#112;et&#101;&#114;&#46;&#109;o&#115;&#105;&#101;&#114;&#64;&#103;&#109;&#97;&#105;&#108;&#46;co&#109;">p&#101;&#116;&#101;r&#46;&#109;&#111;&#115;&#105;&#101;r&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;m&nbsp&nbsp</a></address>
-		<!-- <address class="SubSection">
-		<p class="PrintOnly"><a href="https://peter.mosier.ca/resume/">peter.mosier.ca/resume/</a></p>
-		</address> -->
-		<!-- <li>Email: <a href="mailto:&amp;#x70;&amp;#101;&amp;#x74;&amp;#101;&amp;#x72;&amp;#64;&amp;#109;&amp;#111;&amp;#x73;&amp;#105;&amp;#x65;&amp;#114;&amp;#46;&amp;#99;&amp;#97;">&#x70;&#101;&#x74;&#101;&#x72;&#64;&#109;&#111;&#x73;&#105;&#x65;&#114;&#46;&#99;&#97;</a></li> -->
+		<address class="SubSection"><a href="mailto:peter.mosier@gmail.com">peter.mosier@gmail.com</a></address>
 	</div>
 </div>
 
