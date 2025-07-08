@@ -27,40 +27,37 @@
 	/* ===================================================================
 	   Base & Mobile-First Styles (Default)
 	   =================================================================== */
-	html,
-	body {
-	    font-family: sans-serif; /* Set a default sans-serif font */
-	    font-size: 16px;         /* Base font size for mobile-first design */
+	*, *::before, *::after {
+	    box-sizing: border-box; /* Apply robust box-sizing model to all elements */
+	}
+	
+	html, body {
+	    font-family: sans-serif;
+	    font-size: 16px;
 	    width: 100%;
 	    margin: 0;
 	    padding: 0;
-	    box-sizing: border-box;
 	}
 	
 	a {
 	    text-decoration: none;
 	    font-weight: bold;
 	}
-	
 	a:hover {
 	    text-decoration: underline;
 	}
 	
 	p {
 	    color: #555555;
-	    font-size: 0.95rem; /* Slightly larger text for paragraphs on mobile */
+	    font-size: 0.95rem;
 	    margin: 0.5em 10px 0 10px;
 	    padding: 0 0 0 0.5em;
 	}
 	
 	ul {
+	    list-style: none; /* Remove default bullets */
 	    margin: 0.5em 10px 0 10px;
-	    padding: 0 0 0 1em; /* Adjust padding for list indentation */
-	}
-	
-	li {
-	    margin: 0;
-	    padding: 0;
+	    padding: 0 0 0 1em;
 	}
 	
 	footer {
@@ -78,69 +75,58 @@
 	    color: red;
 	}
 	
-	#SourceURL,
-	.PrintOnly {
+	#SourceURL, .PrintOnly {
 	    display: none;
 	}
 	
-	/* --- Header Styles --- */
+	/* --- Header Styles (Mobile First) --- */
 	.Header {
 	    background-color: #6e8fe1;
 	    color: #FFFFFF;
 	    display: flex;
-	    flex-direction: column; /* Stack items vertically on mobile */
-	    align-items: center;   /* Center items horizontally */
-	    padding: 10px;
-	    box-sizing: border-box;
+	    flex-direction: column; /* Stack name and contact info on top of each other */
+	    align-items: center;   /* Center-align the stacked items */
+	    padding: 15px;
+	    width: 100%;
 	}
 	
 	.Header a {
 	    color: white;
-	    word-wrap: break-word;
-	    overflow-wrap: break-word;
 	}
 	
-	.Header .SectionTitle {
+	.Header .SectionTitle { /* Your Name */
 	    font-family: gourmand, serif;
 	    font-variant: small-caps;
-	    font-stretch: expanded;
-	    font-size: 2.5rem;
-	    line-height: 1.2;
+	    font-size: 2.2rem; /* Slightly adjusted for better wrapping on small devices */
 	    text-align: center;
-	    margin: 10px 0;
+	    margin-bottom: 15px; /* Space between name and contact info */
 	    padding: 0;
 	}
 	
-	.Header .SectionBlock {
-	    color: white;
+	.Header-contactInfo { /* The container for all your contact details */
+	    display: flex;
+	    flex-direction: column;
+	    align-items: center; /* Center-align text on mobile */
 	    width: 100%;
-	    text-align: center;
-	    margin: 5px 0;
-	    padding: 0;
 	}
 	
-	.Header ul {
-	    list-style: none;
-	    padding: 0;
-	    margin: 0;
-	}
-	
-	.Header .SubSection {
-	    color: white;    
+	.Header-contactInfo .SubSection {
+	    color: white;
 	    font-size: 0.9rem;
-	    border: none; /* Override general .SubSection border */
-	    padding: 0;
+	    line-height: 1.5; /* Add some space between lines */
 	    margin: 0;
+	    padding: 0;
+	    border: none;
 	}
 	
-	/* --- Body Section Styles --- */
+	/* --- Body Section Styles (Mobile First) --- */
 	.SectionTitle {
 	    background-color: #6e8fe1;
 	    color: white;
-	    font-size: 1.8rem; /* Readable on mobile */
+	    font-size: 1.8rem;
 	    font-weight: bold;
-	    padding: 2px;
-	    margin: 20px 0 0 20px;
+	    padding: 5px 10px;
+	    margin: 20px 10px 0 10px; /* Consistent mobile margins */
 	}
 	
 	.SubSection {
@@ -174,16 +160,15 @@
 	}
 	
 	/* ===================================================================
-	   Large Screen Styles (Tablet & Desktop)
+	   Large Screen Styles (min-width: 768px)
 	   =================================================================== */
 	@media (min-width: 768px) {
-	    html,
 	    body {
-	        font-size: 10pt; /* Restore desktop font size */
+	        font-size: 10pt;
 	    }
 	
 	    p {
-	        font-size: 1em; /* Reset from mobile rem size */
+	        font-size: 1em;
 	        margin: 0.5em 0 0 0;
 	        padding: 0 0 0 1em;
 	    }
@@ -193,212 +178,137 @@
 	        padding: 0;
 	    }
 	
+	    /* --- Header Overrides for Large Screens --- */
 	    .Header {
-	        flex-direction: row; /* Layout items in a row */
+	        flex-direction: row;        /* Items side-by-side */
 	        justify-content: space-between;
 	        align-items: center;
-	        padding: 20px 50px;
+	        padding: 1em 2.5em; /* FIX: Reduced padding as requested (e.g., 1em top/bottom, 2.5em left/right) */
 	    }
 	
 	    .Header .SectionTitle {
 	        font-size: 32px;
-	        margin: 0;
-	        flex-basis: auto;
-	        white-space: nowrap;
+	        text-align: left; /* Align name to the left */
+	        margin: 0;        /* Remove mobile margin */
 	    }
 	
-	    .Header .SectionBlock {
-	        width: auto; /* Allow auto width */
-	        text-align: right;
-	        margin: 0;
-	    }
-	    
-	    .Header .SubSection {
-	        font-size: 8pt;
+	    .Header-contactInfo {
+	        align-items: flex-end; /* Right-align the text in the contact block */
 	    }
 	
-	    .Header li {
-	        display: inline-block; /* Display items side-by-side */
-	        margin-left: 2em;
+	    .Header-contactInfo .SubSection {
+	        font-size: 9pt; /* Slightly smaller font for a cleaner look */
+	        line-height: 1.6; /* FIX: Added space between address lines as requested */
 	    }
-	    
+	
+	    /* --- Body Section Overrides for Large Screens --- */
 	    .SectionTitle {
-	        font-size: 10pt;
+	        width: 14%; /* Two-column layout */
+	        float: left;
 	        margin: 20px 0 0 50px;
+	        padding: 2px;
+	        background-color: transparent; /* Remove background */
+	        color: #000;                   /* Black text */
+	        border-top: 4px solid #990000; /* Use a border instead */
+	        font-size: 10pt;
 	    }
-	    
+	
 	    .SubSection {
 	        margin: 20px 20px 0 70px;
+	        width: 75%; /* Adjust width for the two-column layout */
+	        float: right;
+	        border-style: solid;
+	        border-color: #ccc;
+	        border-width: 0 0 1px 1px;
 	        padding: 1em;
 	    }
 	}
-
 	
 	/* ===================================================================
 	   Print Styles
 	   =================================================================== */
 	@media print {
-	    html,
-	    body {
+	    html, body {
 	        font-family: Times, serif;
 	        font-size: 10pt;
 	        color: #000000;
-	        background-color: #FFFFFF;
+	        background-color: #FFFFFF !important;
 	    }
-
+	
+	    a {
+	        color: #000000;
+	        text-decoration: none;
+	    }
+	
 	    #PrintAdvice, footer {
 	        display: none;
 	    }
-
-	a {
-	        text-decoration: none;
-	        color: #000000;
+	
+	    #SourceURL, .PrintOnly {
+	        display: block;
 	    }
-
-	    /* 
-	     *  FIX: Force transparent background on all header elements.
-	     *  Using !important ensures this rule overrides any other conflicting styles 
-	     *  from your main stylesheet, which is likely where the blue is coming from.
-	     */
+	
+	    /* --- Print Header --- */
 	    .Header, .Header * {
 	        background-color: transparent !important;
 	        color: #000000 !important;
 	        border: none !important;
+	        font-variant: normal !important; /* Reset small-caps for print */
 	    }
-
-	.Header {
+	
+	    .Header {
 	        display: flex;
 	        flex-direction: row;
 	        justify-content: space-between;
-	        align-items: flex-start; /* Aligns name and contact block to the top */
-	        width: 100%;
+	        align-items: flex-start;
 	        padding-bottom: 1em;
-	        margin-bottom: 1em;
-	        border-bottom: 2px solid #000000; /* Adds a nice separator line */
-	}
-
-	    /* Left side of the header (Your Name) */
+	        margin-bottom: 1.5em;
+	        border-bottom: 2px solid #000000;
+	    }
+	
 	    .Header .SectionTitle {
 	        font-family: Tahoma, sans-serif;
-	        font-size: 24px; /* Slightly reduced for better balance */
+	        font-size: 24px;
 	        font-weight: bold;
-	        white-space: nowrap; /* Keeps your name on one line */
-	        margin: 0;
-	        padding: 0;
+	        white-space: nowrap;
 	    }
 	
-	    /* 
-	     *  Right side of the header (Contact Info Container)
-	     *  This rule targets the container we added in the HTML.
-	     *  flex-direction: column "stacks" the contact items vertically.
-	     *  align-items: flex-end right-aligns the text within the stack.
-	     */
 	    .Header-contactInfo {
 	        display: flex;
-	        flex-direction: column; /* This is what stacks the items */
-	        align-items: flex-end; /* This right-aligns the stacked items */
-	        font-size: 9pt; /* Smaller font size as requested */
+	        flex-direction: column;
+	        align-items: flex-end;
+	        font-size: 9pt;
 	    }
-
-	    /* Styling for the individual lines of contact info */
+	
 	    .Header-contactInfo .SubSection {
-	        margin: 0;
-	        padding: 0;
-	        line-height: 1.4; /* Adds a little space between the lines */
-	        text-align: right;
-	    }
-
-		
-	    .start-new-page,
-	    .force-new-page-on-next {
-	        page-break-before: always;
-	    }
-		
-	    #SourceURL {
-	        display: block; /* Make it visible for print */
-	        clear: both;
-	        text-align: left;
-	        font-size: 8pt;
-	        font-style: italic;
-	    }
-	    
-	    .PrintOnly {
-	        display: block; /* Make it visible for print */
+	        line-height: 1.4;
 	    }
 	
-	/* This is the slimmed-down reset rule */
-	.Header .SectionBlock, .Header .SubSection, .SectionTitle, .SubSection {
-	    background-color: transparent;
-	    color: #000000;
-	    border: none;
-	    float: none;
-	    width: auto;
-	    margin: 0;
-	    padding: 0;
-	}
-	
-	    .Header .SectionBlock {
-	        /* float: right; */
-	        text-align: right;
-	        font-size: 8pt;
-	        margin: 8px 8px 0 0;
-	    }
-	    
-	    .Header .SubSection {
-	        text-align: right;
-	        list-style: none;
-	    }
-	    
-	    .Header li {
-	        float: left;
-	        margin: 0 0 0 2em;
-	    }
-	
-	    .SectionTitle, h2.PrintOnly {
-	        clear: both;
+	    /* --- Print Body --- */
+	    .SectionTitle {
 	        font-family: Tahoma, sans-serif;
-	        font-size: 10pt;
+	        font-size: 11pt;
 	        border-top: 4px solid #000000;
 	        width: 14%;
 	        margin: 1.5em 0 0 0;
 	        float: left;
+	        background-color: transparent; /* Ensure no background */
 	    }
 	
-	    .SectionBlock {
+	    .SectionBlock { /* This class is still useful for grouping SubSections in print */
 	        width: 83%;
 	        margin: 1.5em 0 0 0;
 	        float: left;
-	        border: 1px solid #000000;
-	        border-bottom: none;
-	        border-right: none;
+	        border-left: 1px solid #000000;
+	        padding-left: 1em;
 	    }
 	
 	    .SubSection {
 	        padding: 4px 4px 4px 6px;
 	        border-bottom: 1px solid #000000;
-	    }
-	    
-	    h1.PrintOnly {
-	        clear: both;
-	        font-size: 8pt;
-	        font-family: Tahoma, sans-serif;
-	        font-weight: normal;
-	        float: left;
-	        width: 100%;
-	        border: none;
+	        border-left: none; /* Remove left border since parent .SectionBlock has it */
 	        margin: 0;
-	        padding: 0;
-	    }
-	    
-	    p {
-	        color: #000000;
-	        margin: 0.5em 0 0 0;
-	        padding: 0 0 0 1em;
-	    }
-	
-	    ul {
-	        margin: 0.5em 0 0 2em;
-	        padding: 0;
+	        width: 100%;
 	    }
 	}
 
