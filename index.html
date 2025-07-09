@@ -190,7 +190,7 @@
 	    }
 	
 	.Header .SectionTitle {
-		float:			left;
+		/* float:			left; REDUNDANT; already float left in parent container */
 		color: 			#FFFFFF;
 		background-color:	#6e8fe1;
 		font-family: 		gourmand, serif;
@@ -199,6 +199,7 @@
 		font-size: 		32px;
 		padding: 		0px 0 0 0px;
 		margin:			0 0 0 0;
+		white-space:    	nowrap;	/* Prevent wrapping name & degree*/
 	}
 	
 	    .Header-contactInfo {
