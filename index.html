@@ -329,6 +329,7 @@
 	        float: left;
 	        background-color: transparent; /* Ensure no background */
 	        color: #000000; /*  Make the section title text black for printing */
+	    	clear: left; /*Forces each new section to start on a new line, fixing the float issue after a page break. */
 	    }
 	
 
@@ -353,7 +354,11 @@
 	    }
 	
 	    /*the next section to always start on a new page */
-	    .start-new-page .force-new-page-on-next {
+	    .start-new-page {
+	        page-break-before: always;
+	    }
+
+	.force-new-page-on-next {
 	        page-break-before: always;
 	    }
 	}
