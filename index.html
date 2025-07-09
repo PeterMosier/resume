@@ -86,7 +86,8 @@
 	    display: flex;
 	    flex-direction: column; /* Stack name and contact info on top of each other */
 	    align-items: center;   /* Center-align the stacked items */
-	    padding: 15px;
+	    padding: 5px;	/*5px all around */
+		margin: 0px;
 	    width: 100%;
 	}
 	
@@ -95,11 +96,11 @@
 	}
 	
 	.Header .SectionTitle { /* Your Name */
-	    font-family: gourmand, serif;
+	    font-family: Tahoma,sans-serif;;
 	    font-variant: small-caps;
 	    font-size: 2.2rem; /* Slightly adjusted for better wrapping on small devices */
 	    text-align: center;
-	    margin-bottom: 15px; /* Space between name and contact info */
+	    margin-bottom: 5px; /* Space between name and contact info */
 	    padding: 0;
 	}
 	
@@ -113,9 +114,9 @@
 	.Header-contactInfo .SubSection {
 	    color: white;
 	    font-size: 0.9rem;
-	    line-height: 1.5; /* Add some space between lines */
+	    line-height: 1; 
 	    margin: 0;
-	    padding: 0;
+	    padding: 0 0 10px 0;
 	    border: none;
 	}
 	
@@ -218,17 +219,10 @@
 		margin:		10px 0 0 10px;	        
 	}
 
-	    /* 
-	     * [FIX #2] The right column. This takes up the remaining space.
-	     * Its width (80%) + left column width (20%) = 100%. This prevents wrapping.
-	     */
+
 	    .SectionBlock {
 	    }
 	    
-	    /* 
-	     * [FIX #3] Individual content blocks within the right column.
-	     * These are simple block elements now with no layout properties.
-	     */
 	.Header .SubSection {
 		padding:			0 0 0 0;
 		margin: 			5px 0 0 0;
@@ -296,22 +290,21 @@
 	        justify-content: space-between;
 	        align-items: flex-start;
 	        padding: 0 0 0 0;		
-	        margin-bottom: 0;
-	        /* border-bottom: 2px solid #000000; */
+	        margin: 0 0 0 0;
 	    }
 	
 	    .Header .SectionTitle {
 			float:				left;
 			color: 				#000000;
-			font-family:        Tahoma,sans-serif;
+			font-family:        		Tahoma,sans-serif;
 			font-size: 			24px;
-			border-style:		none none none none;
-			border-width:		0 0 0 0;
+			border-style:			none none none none;
+			border-width:			0 0 0 0;
 			width:				auto;
 			padding: 			0 0 0 0;
 			margin:				0 0 0 0;
-	        font-weight: bold;
-	        white-space: nowrap;
+		        font-weight: 			bold;
+		        white-space: 			nowrap;
 	    }
 	
 	    .Header-contactInfo {
@@ -322,7 +315,7 @@
 	    }
 	
 	    .Header-contactInfo .SubSection {
-	        line-height: 1.4;
+	        line-height: 1;
 		text-align: right;
 	    }
 	
@@ -396,7 +389,7 @@
 		Seeking a <b>Project Manager</b> opportunity to leverage my years of project management, along with my expertise in automation and assembly lines, and business systems implementation, 
 		to deliver projects <b>on time and within budget</b>.</p>
 		
-		<!-- material handling equipment, 
+		<!-- material handling equipment, -->
 		<!-- change management, -->
 		<!-- and process improvement. -->
 		<!-- a proven track record in-->
