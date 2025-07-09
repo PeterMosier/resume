@@ -337,16 +337,15 @@
 	        color: #000000; /*  Make the section title text black for printing */
 	    }
 	
-	    .SectionBlock { /* This class is still useful for grouping SubSections in print */
+
+		.SectionBlock {
 			width:			83%;
-			padding:		0 0 0 0;
-			margin: 		1.5em 0 0 0;
+			padding:		0 0 0 1em;
+			margin: 		calc(1.5em + 3px) 0 0 0; /* <-- nudge it up to align borders */
 			float:			left;
-		        border-top: 		1px solid #000000;
-		        border-right: 		1px solid #000000;
-		        /* border-left: 		1px solid #000000; */
-		        padding-left:		 1em;
-	    }
+			border-top: 		1px solid #000000;
+			border-right: 		1px solid #000000;
+		}
 	
 	    .SubSection {
 			color:              	#000000;
