@@ -7,7 +7,9 @@ Master copy of my résumé (also known as a C.V. or curriculum vitae).
 
 ## Deployment
 
-⚙️ This repository uses a GitHub Actions workflow to automatically deploy `index.html` to my WordPress website at peter.mosier.ca/resume. This action is triggered every time the resume is updated/saved (i.e. changes "Committed").
+⚙️ This repository uses a GitHub Actions workflow to automatically deploy `index.html` to my WordPress website at peter.mosier.ca/resume. 
+
+👍 This action is triggered every time the resume is updated/saved (i.e. changes "Committed").
 
 ✅ The following badge shows whether the last deploy worked as expected. Clicking the badge shows the full run history.
 
