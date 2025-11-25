@@ -1,4 +1,4 @@
-# Résumé
+# Résumé | HTML
 
 ## Description
 Master copy of my résumé (also known as a C.V. or curriculum vitae).
