@@ -253,115 +253,107 @@
 	   Print Styles
 	   =================================================================== */
 
+
+ 
 	@media print {
-	    html, body {
-	        font-family: Times, serif;
-	        font-size: 10pt;
-			width: 			100%;
-			margin: 		0 0 0 0;
-			padding: 		0 0 0 0;
-		    color: #000000;
-		    background-color: #FFFFFF !important;
-	    }
+	  html, body {
+	    font-family: Times, serif;
+	    font-size: 10pt;
+	    width: 100%;
+	    margin: 0;
+	    padding: 0;
+	    color: #000;
+	    background-color: #fff !important;
+	    -webkit-print-color-adjust: exact;
+	  }
 	
-	    a {
-	        color: #000000;
-	        text-decoration: none;
-	    }
+	  /* consistent box-sizing for print */
+	  *, *::before, *::after { box-sizing: border-box; }
 	
-	    #PrintAdvice, footer {
-	        display: none;
-	    }
+	  a { color: #000; text-decoration: none; }
 	
-	    #SourceURL, .PrintOnly {
-	        display: block;
-	    }
+	  #PrintAdvice, footer { display: none; }
+	  #SourceURL, .PrintOnly { display: block; }
 	
-	    /* --- Print Header --- */
-	    .Header, .Header * {
-	        background-color: transparent !important;
-	        color: #000000 !important;
-	        border: none !important;
-	        font-variant: normal !important; /* Reset small-caps for print */
-	    }
+	  /* Print header reset */
+	  .Header, .Header * {
+	    background-color: transparent !important;
+	    color: #000 !important;
+	    border: none !important;
+	    font-variant: normal !important;
+	  }
 	
-	    .Header {
-	        display: flex;
-	        flex-direction: row;
-	        justify-content: space-between;
-	        align-items: flex-start;
-	        padding: 0 0 0 0;		
-	        margin: 0 0 0 0;
-	    }
+	  .Header {
+	    display: flex;
+	    flex-direction: row;
+	    justify-content: space-between;
+	    align-items: flex-start;
+	    margin: 0;
+	    padding: 0;
+	  }
 	
-	    .Header .SectionTitle {
-			float:				left;
-			color: 				#000000;
-			font-family:        		Tahoma,sans-serif;
-			font-size: 			11px;
-			border-style:			none none none none;
-			border-width:			0 0 0 0;
-			width:				auto;
-			padding: 			0 0 0 0;
-			margin:				0 0 0 0;
-		        font-weight: 			bold;
-		        white-space: 			nowrap;
-	    }
+	  .Header .SectionTitle {
+	    font-family: Tahoma, Arial, sans-serif;
+	    font-variant: normal;
+	    font-weight: bold;
+	    font-size: 18pt !important;
+	    line-height: 1.05;
+	    white-space: nowrap;
+	    margin: 0;
+	    padding: 0;
+	  }
 	
-	    .Header-contactInfo {
-	        display: flex;
-	        flex-direction: column;
-	        align-items: flex-end;
-	        font-size: 9pt;
-	    }
+	  .Header-contactInfo {
+	    display: flex;
+	    flex-direction: column;
+	    align-items: flex-end;
+	    font-size: 9pt;
+	  }
+	  .Header-contactInfo .SubSection { line-height: 1; text-align: right; }
 	
-	    .Header-contactInfo .SubSection {
-	        line-height: 1;
-		text-align: right;
-	    }
-	
-	   /* width used previously for SectionTitle (14%) becomes a fixed left column */
+	  /* Section title column */
 	  .SectionTitle {
-	    font-family: Tahoma, sans-serif;
-	    font-size: 11pt
-		float: none !important;
+	    font-family: Tahoma, Arial, sans-serif;
+	    font-variant: normal;
+	    font-weight: bold;
+	    font-size: 11pt !important;
+	    line-height: 1.1;
+	    border-top: 4px solid #000;
 	    display: block;
 	    width: 14%;
-	    box-sizing: border-box;
 	    margin: 1.5em 0 0 0;
 	    padding: 0;
-	    border-top: 4px solid #000;
 	    background: transparent;
 	    color: #000;
-	    clear: left;
 	  }
-
-	  /* Content column keeps a left margin equal to the title column */
+	
+	  /* Content column aligned to the right of the title column */
 	  .SectionBlock {
-	    float: none !important;
 	    margin-left: 14%;
 	    width: auto;
 	    padding-left: 1em;
 	    border-top: 1px solid #000;
 	    border-right: 1px solid #000;
-	    box-sizing: border-box;
+	    orphans: 3;
+	    widows: 3;
 	  }
-
-	  /* Avoid splitting small subsections across pages */
+	
+	  /* Subsections avoid awkward breaks (use only for short blocks) */
 	  .SubSection {
 	    page-break-inside: avoid;
 	    break-inside: avoid;
-	    margin: 0 0 0 0;
+	    orphans: 3;
+	    widows: 3;
+	    margin: 0;
 	    padding: 4px 4px 4px 6px;
 	    border-style: none none solid none;
 	    border-width: 0 0 1px 0;
 	  }
 	
-	  /* Keep explicit page-break helper but use sparingly */
-	  .start-new-page {
-	    page-break-before: always;
-	  }
+	  /* Explicit page break helper */
+	  .start-new-page { page-break-before: always; }
 	}
+
 	</style>
 	
 </head>
