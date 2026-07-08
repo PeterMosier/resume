@@ -320,48 +320,45 @@
 		text-align: right;
 	    }
 	
-	    /* --- Print Body --- */
-	    .SectionTitle {
-	        font-family: Tahoma, sans-serif;
-	        font-size: 11pt;
-	        border-top: 4px solid #000000;
-	        width: 14%;
-	        margin: 1.5em 0 0 0;
-	        float: left;
-	        background-color: transparent; /* Ensure no background */
-	        color: #000000; /*  Make the section title text black for printing */
-	    	clear: left; /*Forces each new section to start on a new line, fixing the float issue after a page break. */
-	    }
-	
+	   /* width used previously for SectionTitle (14%) becomes a fixed left column */
+	  .SectionTitle {
+	    float: none !important;
+	    display: block;
+	    width: 14%;
+	    box-sizing: border-box;
+	    margin: 1.5em 0 0 0;
+	    padding: 0;
+	    border-top: 4px solid #000;
+	    background: transparent;
+	    color: #000;
+	    clear: left;
+	  }
 
-		.SectionBlock {
-			width:			83%;
-			padding:		0 0 0 1em;
-			margin: 		calc(1.5em + 3px) 0 0 0; /* <-- nudge it up to align borders */
-			float:			left;
-			border-top: 		1px solid #000000;
-			border-right: 		1px solid #000000;
-		}
-	
-	    .SubSection {
-			color:              	#000000;
-			margin:			0 0 0 0;
-			padding:		4px 4px 4px 6px;
-			border-color:		#000000 #000000 #000000 #000000;
-			border-style:		none none solid none;
-			border-width:		0 0 1px 0;
-	        	border-left: 		none; /* Remove left border since parent .SectionBlock has it */
-	        	width: 			100%;
-	    }
-	
-	    /*the next section to always start on a new page */
-	    .start-new-page {
-	        page-break-before: always;
-	    }
+	  /* Content column keeps a left margin equal to the title column */
+	  .SectionBlock {
+	    float: none !important;
+	    margin-left: 14%;
+	    width: auto;
+	    padding-left: 1em;
+	    border-top: 1px solid #000;
+	    border-right: 1px solid #000;
+	    box-sizing: border-box;
+	  }
 
-	.force-new-page-on-next {
-	        page-break-before: always;
-	    }
+	  /* Avoid splitting small subsections across pages */
+	  .SubSection {
+	    page-break-inside: avoid;
+	    break-inside: avoid;
+	    margin: 0 0 0 0;
+	    padding: 4px 4px 4px 6px;
+	    border-style: none none solid none;
+	    border-width: 0 0 1px 0;
+	  }
+	
+	  /* Keep explicit page-break helper but use sparingly */
+	  .start-new-page {
+	    page-break-before: always;
+	  }
 	}
 	</style>
 	
@@ -559,9 +556,6 @@
 	</div>
 </div>
 	
-<div class="start-new-page"></div>
-<div class="start-new-page"></div>
-
 <h2 class="PrintOnly">Career History (cont.)</h2>
 <div class="SectionBlock force-new-page-on-next">
 
@@ -640,18 +634,7 @@
 		<li>Skillfully managed priorities and critical operations in a dynamic business climate, including acting as interim VP Sales during extended absence</li>
             </ul>
 	</div>
-
-
 </div>
-<p class="PrintOnly">&nbsp</p>
-<p class="PrintOnly">&nbsp</p>
-<p class="PrintOnly">&nbsp</p>
-<p class="PrintOnly">&nbsp</p>
-
-
-
-<div class="start-new-page"></div>
-<div class="start-new-page"></div>
 
 <h2 class="PrintOnly">Career History (cont.)</h2>
 
