@@ -304,7 +304,6 @@
 		border-top: 1px solid #000; /* shared top border */
     }
 
-    .SectionWrapper.start-new-page,
 	.SectionWrapper h2.SectionTitle {
         grid-column: 1;
         font-family: Tahoma, Arial, sans-serif;
@@ -318,6 +317,13 @@
         color: #000;
     }
 
+	/* If I want the same heading style when the wrapper forces a new page,
+	target the heading inside that wrapper — NOT the wrapper itself */
+	.SectionWrapper.start-new-page h2.SectionTitle {
+		/* only override what you need for the page-break case */
+		/* margin-top: 0.5em; /* optional: small spacing after forced page break */
+	}
+		
     .SectionWrapper .SectionBlock {
         grid-column: 2;
         border-top: 1px solid #000;
@@ -539,7 +545,7 @@
 <!-- ========================= -->
 <!-- SECTION: Career History (cont.) -->
 <div class="SectionWrapper start-new-page">
-	<h2 class="PrintOnly">Career History (cont.)</h2>
+	<h2 class="SectionTitle PrintOnly">Career History (cont.)</h2>
 	<div class="SectionBlock">
 		<div class="SubSection">
 			<h3 class="Organization"><a href="https://escapeenigma.ca/">Escape Enigma 🔗<br />(escape room adventure entertainment)<br />Edmonton, Alberta</a></h3>
@@ -622,7 +628,7 @@
 <!-- ========================= -->
 <!-- SECTION: Career History (cont.) -->
 <div class="SectionWrapper start-new-page">
-	<h2 class="PrintOnly">Career History (cont.)</h2>
+	<h2 class="SectionTitle PrintOnly">Career History (cont.)</h2>
 	<div class="SectionBlock">
 		<div class="SubSection">
     		<h3 class="Organization">BMG Seltec<br />(automation systems for transportation)<br />Livermore, California</h3>
@@ -802,10 +808,10 @@
 
 	
 <footer>
-	<p class="PrintOnly">&nbsp</p>
-	<p class="PrintOnly">&nbsp</p>
-	<p class="PrintOnly">&nbsp</p>
-	<p class="PrintOnly">&nbsp</p>
+	<p class="SectionTitle PrintOnly">&nbsp</p>
+	<p class="SectionTitle PrintOnly">&nbsp</p>
+	<p class="SectionTitle PrintOnly">&nbsp</p>
+	<p class="SectionTitle PrintOnly">&nbsp</p>
 	<p id="footer-text">Updated: July 14, 2026<br />
 	Check <a href="https://peter.mosier.ca/resume/">peter.mosier.ca/resume/</a> or <a href="https://petermosier.github.io/resume/">petermosier.github.io/resume/</a> for most recent version.</p>
 </footer>
