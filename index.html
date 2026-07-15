@@ -159,6 +159,7 @@
 	    padding: 0;
 	}
 	
+
 	@media screen and (min-width: 768px) {
 		body {
 			max-width: 850px;       /* roughly 8.5" */
@@ -166,6 +167,12 @@
 			background-color: #f8f8f8; /* optional subtle background */
 			padding: 20px;          /* breathing room around content */
 		}
+		p, li { line-height: 1.4; }				/* Increase line spacing slightly for paragraphs */				
+		
+		.SectionWrapper { margin-bottom: 2em; } /* Add subtle section spacing */
+
+		.Header { background-color: #FFFF00; color: white; }
+
 	}
 
 
@@ -190,7 +197,7 @@
 	        padding: 0;
 	    }
 	
-	    /* --- Header Overrides (These are correct) --- */
+	    /* --- Header Overrides --- */
 	    .Header {
 	        flex-direction: row;
 	        justify-content: space-between;
@@ -199,15 +206,15 @@
 	    }
 	
 	.Header .SectionTitle {
-		color: 			#FFFFFF;
+		color: 				#FFFFFF;
 		background-color:	#6e8fe1;
 		font-family: 		Tahoma,sans-serif;
 		font-variant: 		small-caps;
 		font-stretch: 		expanded;
-		font-size: 		32px;
-		padding: 		0;
-		margin:			0;
-		white-space:    	nowrap;	/* Prevent wrapping name & degree*/
+		font-size: 			32px;
+		padding: 			0;
+		margin:				0;
+		white-space:    	nowrap;		/* Prevent wrapping name & degree*/
 	}
 	
 	    .Header-contactInfo {
