@@ -83,10 +83,14 @@
 	    color: red;
 	}
 	
-	#SourceURL, .PrintOnly {
-	    display: none;
+	.PrintOnly {
+		display: block;        /* must be visible for sticky */
+		visibility: hidden;    /* hides text but keeps layout */
+		height: 0;             /* remove vertical space */
+		margin: 0;
+		padding: 0;
 	}
-	
+
 	/* --- Header Styles (Mobile First) --- */
 	.Header {
 	    background-color: #6e8fe1;
@@ -283,7 +287,11 @@
 	  a { color: #000; text-decoration: none; }
 	
 	  #PrintAdvice, footer { display: none; }
-	  #SourceURL, .PrintOnly { display: block; }
+
+		.PrintOnly {
+    		visibility: visible;
+    		height: auto;
+  		}
 	
 	  /* Print header reset */
 	  .Header, .Header * {
