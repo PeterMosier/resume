@@ -3,9 +3,13 @@
 ## Description
 Master copy of my résumé (also known as a C.V. or curriculum vitae).
 
+💪 HTML on GH is canonical. Edit in place here in GH.
+
 ✨ View the official, posted résumé, hosted on my website: [peter.mosier.ca/resume](https://peter.mosier.ca/resume)
 
-➡️ Also now includes "2 pager" summary (.DOCX)
+➡️ Also now includes "2 pager" summary (.DOCX) 
+
+⚠️ Reminder: this Github .DOCX is canonical: Download → Edit → Upload
 
 ## Deployment
 
