@@ -4,6 +4,7 @@
 Master copy of my résumé (also known as a C.V. or curriculum vitae).
 
 ✨ View the official, posted résumé, hosted on my website: [peter.mosier.ca/resume](https://peter.mosier.ca/resume)
+➡️ Also now includes "2 pager" summary (.DOCX)
 
 ## Deployment
 
